@@ -1,0 +1,14 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+#服务端编译文件 npm run tsc
+distserver
+
+# Nuxt generate
+/dist
