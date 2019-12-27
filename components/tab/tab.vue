@@ -1,12 +1,10 @@
 <template>
-    <div>
         <div class="header-tab">
             <nuxt-link to="/first" class="item"> tab1</nuxt-link>
             <nuxt-link to="/first" class="item"> tab2</nuxt-link>
             <nuxt-link to="/first" class="item"> tab3</nuxt-link>
             <nuxt-link to="/first" class="item"> tab4</nuxt-link>
         </div>
-    </div>
 </template>
 
 <style scope>
@@ -18,6 +16,7 @@
         display: flex;
         position: fixed;
         bottom: 0;
+        left: 0;
     }
     .item{
         display: inline-flex;

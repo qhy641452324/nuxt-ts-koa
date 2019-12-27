@@ -21,7 +21,8 @@ module.exports = {
     'element-ui/lib/theme-chalk/index.css'
   ],
   plugins: [
-    '~/plugins/element-ui'
+    {src:'~/plugins/element-ui'},
+    { src: '~/plugins/common.js', ssr: false },
   ],
   /*
   ** Build configuration

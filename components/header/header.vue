@@ -1,12 +1,11 @@
 <template>
-    <div>
+
         <div class="header-menu">
             <nuxt-link to="/first/home" class="item"> header</nuxt-link>
             <nuxt-link to="/first/home" class="item"> header</nuxt-link>
             <nuxt-link to="/first/home" class="item"> header</nuxt-link>
             <nuxt-link to="/first/home" class="item"> header</nuxt-link>
         </div>
-    </div>
 </template>
 
 <style>

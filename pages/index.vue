@@ -1,16 +1,17 @@
 <template>
   <section class="container">
     <div>
-      <!-- <app-logo/>
-      <h4 class="title"></h4> -->
-      
+      <!-- <app-logo/> -->
       <span>welcome </span>
-
       <ul>
       <li v-for="(item, index) in list" :key="index">
         {{item}}
       </li>
     </ul>
+
+    <ul>
+      <li v-for="item in users" :key="item.name">{{item.name}}</li>
+  </ul>
 
     </div>
   </section>
@@ -29,6 +30,15 @@ export default {
       list: ['1', '2', '3']
     }
   },
+  //https://segmentfault.com/a/1190000015325622
+  //asyncData方法在组件初始化之前被调用，所以在方法内是没有办法通过this来引用组件的示例对象，
+  //在asyncData方法中返回的数据直接赋值给了users，在页面中可以想使用data中的数据一样去使用users，从而达到服务端渲染的效果
+  async asyncData ({ params, error }) {
+    const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
+    return { 
+      users: data.slice(0,5)
+    }
+  },
   async mounted() {
     let res = await axios.get('/list');
     console.log(res)
@@ -39,11 +49,11 @@ export default {
 
 <style>
 .container {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center; */
 }
 
 .title {
