@@ -22,8 +22,9 @@ app.use(convert(cors()));
 regroute(app) 
 
 // const host = process.env.HOST || "localhost"
+// const port = process.env.PORT || 3000
 const host = "localhost"
-const port = process.env.PORT || 3000
+const port = 1452;
 
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')

@@ -1,33 +1,67 @@
 <template>
-  <section class="container">
-    <div>
-      <!-- <app-logo/> -->
-      <span>welcome </span>
-      <ul>
-      <li v-for="(item, index) in list" :key="index">
-        {{item}}
-      </li>
-    </ul>
+  <section>
+    <div class="container">
+      <div v-swiper:mySwiper="swiperOption" class="my-swiper">
+        <div class="swiper-wrapper">
+          <div  class="swiper-slide"><img src="../assets//images/banner12.jpg"></div>
+          <div  class="swiper-slide"><img src="../assets//images/banner12.jpg"></div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-bullets"></div>
+      </div>
 
-    <ul>
+      <div id="testdom"></div>
+
+      <ul class="infolist">
+        <li>这是测试从koa后端包出来的接口:</li>
+        <li v-for="(item, index) in list" :key="index">
+          {{item}}
+        </li>
+      </ul>
+
+    <ul class="userlist">
+      <li>这里测试的是服务器渲染:</li>
       <li v-for="item in users" :key="item.name">{{item.name}}</li>
-  </ul>
+    </ul>
 
     </div>
   </section>
 </template>
 
 <script>
+import $ from 'jquery'
 import AppLogo from '~/components/AppLogo.vue';
 import axios from 'axios';
 
 export default {
+  head(){
+    return {
+      title:'首页index'
+    }
+  },
   components: {
     AppLogo
   },
   data() {
     return {
-      list: ['1', '2', '3']
+      list: ['1', '2', '3'],
+      swiperOption: {
+          loop: true,
+          slidesPerView: 'auto',
+          centeredSlides: true,
+          spaceBetween: 30,
+          pagination: {
+            el: '.swiper-pagination',
+            dynamicBullets: true
+          },
+          on: {
+            slideChange() {
+              console.log('onSlideChangeEnd', this);
+            },
+            tap() {
+              console.log('onTap', this);
+            }
+          }
+        }
     }
   },
   //https://segmentfault.com/a/1190000015325622
@@ -40,20 +74,68 @@ export default {
     }
   },
   async mounted() {
+    setTimeout(() => {
+        this.asyncCount = 5
+    }, 1000);
     let res = await axios.get('/list');
-    console.log(res)
-    this.list = res.data.list
+    this.list = res.data.list;
+    $("#testdom").text('there is a test for Jquery') 
   }
 }
 </script>
 
-<style>
+<style lang="less">
+// 引入全局的css样式
+@import "../assets/css/main.less";
+
+.my-swiper {
+    height: 180px;
+    width: 100%;
+    .swiper-slide {
+      text-align: center;
+      font-size: 38px;
+      font-weight: 700;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-pagination {
+      > .swiper-pagination-bullet {
+        background-color: red;
+      }
+    }
+  }
+
 .container {
-  /* min-height: 100vh; */
-  display: flex;
-  /* justify-content: center;
-  align-items: center;
-  text-align: center; */
+  // width: 96%;
+  margin: 0 auto;
+  overflow: hidden;
+  pre{
+    margin: 0 .5rem;
+  }
+  .txt{
+    font-size: 12px;
+    color: #35495e;
+    padding: 0 5px;
+  }
+  #testdom{
+    color: salmon;
+    font-weight: bold;
+    margin: 10px;
+  }
+  .userlist{
+    display: block;
+    margin: 10px 0;
+    li{
+      list-style: none;
+      color: mediumseagreen;
+    }
+  }
+  .infolist{
+    font-size: 12px;
+    color: #526488;
+  }
 }
 
 .title {

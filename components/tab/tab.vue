@@ -7,7 +7,7 @@
         </div>
 </template>
 
-<style scope>
+<style scoped  lang="less">
     .header-tab{
         width: 100%;
         height: 35px;
@@ -17,9 +17,14 @@
         position: fixed;
         bottom: 0;
         left: 0;
+        background: #ffffff;
+        z-index: 99;
+        .item{
+            display: inline-flex;
+            flex: auto;
+            display: block;
+            text-align: center;
+        }
     }
-    .item{
-        display: inline-flex;
-        flex: auto;
-    }
+    
 </style>

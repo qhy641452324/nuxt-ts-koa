@@ -18,11 +18,14 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    "~assets/css/main.less",
+    "swiper/dist/css/swiper.css" 
   ],
   plugins: [
     {src:'~/plugins/element-ui'},
     { src: '~/plugins/common.js', ssr: false },
+    { src: "~/plugins/swiper.js", ssr: false }
   ],
   /*
   ** Build configuration
