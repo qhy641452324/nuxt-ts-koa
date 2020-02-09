@@ -12,7 +12,7 @@ const app = new Koa();
 app.use(bodyParser())
 
 // 处理跨域
-app.use(convert(cors()));
+app.use(convert(cors()));   
 
 // app.use(views(__dirname + '/views/pages', {
 //     extension: 'pug'
