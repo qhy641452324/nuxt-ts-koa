@@ -9,7 +9,7 @@ const app = new Koa();
 
 
 // 注册requestbody解析中间件   
-app.use(bodyParser())
+app.use(bodyParser())     
 
 // 处理跨域
 app.use(convert(cors()));     
