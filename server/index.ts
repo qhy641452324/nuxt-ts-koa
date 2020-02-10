@@ -8,7 +8,7 @@ const regroute = require('./modules/reg_route/')
 const app = new Koa();
 
 
-// 注册requestbody解析中间件   
+// 注册requestbody解析中间件   ...
 app.use(bodyParser())     
 
 // 处理跨域
