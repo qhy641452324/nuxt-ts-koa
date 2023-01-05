@@ -31,7 +31,7 @@
     "less-loader": "^5.0.0",
     "moment": "^2.24.0",
     "monk": "^7.1.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "scss": "^0.2.4",
     "typescript": "^3.7.4",
     "vue-awesome-swiper": "^3.1.3",
